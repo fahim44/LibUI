@@ -1,0 +1,3 @@
+rootProject.name='Lib UI'
+include ':app'
+include ':libui'
