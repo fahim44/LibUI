@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import javax.inject.Inject;
 
@@ -17,6 +19,9 @@ public abstract class BaseDaggerActivity extends AppCompatActivity implements Ha
     @Inject
     DispatchingAndroidInjector<Object> androidInjector;
 
+    @Inject
+    protected ViewModelProvider.Factory viewModelFactory;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidInjection.inject(this);
@@ -26,5 +31,9 @@ public abstract class BaseDaggerActivity extends AppCompatActivity implements Ha
     @Override
     public AndroidInjector<Object> androidInjector() {
         return androidInjector;
+    }
+
+    protected <T extends ViewModel> T initiateViewModel(Class<T> type){
+        return new ViewModelProvider(this, viewModelFactory).get(type);
     }
 }

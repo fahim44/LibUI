@@ -4,6 +4,8 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import javax.inject.Inject;
 
@@ -17,6 +19,9 @@ public abstract class BaseDaggerFragment extends Fragment implements HasAndroidI
     @Inject
     DispatchingAndroidInjector<Object> androidInjector;
 
+    @Inject
+    protected ViewModelProvider.Factory viewModelFactory;
+
     @Override
     public void onAttach(@NonNull Context context) {
         AndroidSupportInjection.inject(this);
@@ -26,5 +31,9 @@ public abstract class BaseDaggerFragment extends Fragment implements HasAndroidI
     @Override
     public AndroidInjector<Object> androidInjector() {
         return androidInjector;
+    }
+
+    protected <T extends ViewModel> T initiateViewModel(Class<T> type){
+        return new ViewModelProvider(this, viewModelFactory).get(type);
     }
 }
