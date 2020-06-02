@@ -16,7 +16,6 @@ public abstract class BaseActivity extends BaseDaggerActivity {
     @Override
     protected void onDestroy() {
         disposable.dispose();
-        ViewUtil.hideKeyboard(this);
         super.onDestroy();
     }
 

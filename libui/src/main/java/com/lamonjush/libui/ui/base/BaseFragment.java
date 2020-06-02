@@ -15,7 +15,6 @@ public abstract class BaseFragment extends BaseDaggerFragment {
 
     @Override
     public void onDestroy() {
-        ViewUtil.hideKeyboard(getActivity());
         disposable.dispose();
         super.onDestroy();
     }
