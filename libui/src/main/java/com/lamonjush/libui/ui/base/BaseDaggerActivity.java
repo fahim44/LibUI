@@ -19,8 +19,8 @@ public abstract class BaseDaggerActivity extends AppCompatActivity implements Ha
     @Inject
     DispatchingAndroidInjector<Object> androidInjector;
 
-    @Inject
-    protected ViewModelProvider.Factory viewModelFactory;
+    /*@Inject
+    protected ViewModelProvider.Factory viewModelFactory;*/
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public abstract class BaseDaggerActivity extends AppCompatActivity implements Ha
         return androidInjector;
     }
 
-    protected <T extends ViewModel> T initiateViewModel(Class<T> type){
+    /*protected <T extends ViewModel> T initiateViewModel(Class<T> type){
         return new ViewModelProvider(this, viewModelFactory).get(type);
-    }
+    }*/
 }

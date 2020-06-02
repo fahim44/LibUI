@@ -19,8 +19,8 @@ public abstract class BaseDaggerFragment extends Fragment implements HasAndroidI
     @Inject
     DispatchingAndroidInjector<Object> androidInjector;
 
-    @Inject
-    protected ViewModelProvider.Factory viewModelFactory;
+    /*@Inject
+    protected ViewModelProvider.Factory viewModelFactory;*/
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -33,7 +33,7 @@ public abstract class BaseDaggerFragment extends Fragment implements HasAndroidI
         return androidInjector;
     }
 
-    protected <T extends ViewModel> T initiateViewModel(Class<T> type){
+    /*protected <T extends ViewModel> T initiateViewModel(Class<T> type){
         return new ViewModelProvider(this, viewModelFactory).get(type);
-    }
+    }*/
 }
