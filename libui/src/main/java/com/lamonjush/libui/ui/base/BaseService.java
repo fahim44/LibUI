@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 
-public abstract class BaseService extends Service implements LifecycleOwner {
+public abstract class BaseService extends BaseDaggerService implements LifecycleOwner {
 
     private LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
 
