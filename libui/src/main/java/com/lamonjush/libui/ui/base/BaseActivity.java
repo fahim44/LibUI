@@ -1,6 +1,7 @@
 package com.lamonjush.libui.ui.base;
 
 import com.lamonjush.libui.action.base.ActivityAction;
+import com.lamonjush.libui.util.ViewUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -15,6 +16,7 @@ public abstract class BaseActivity extends BaseDaggerActivity {
     @Override
     protected void onDestroy() {
         disposable.dispose();
+        ViewUtil.hideKeyboard(this);
         super.onDestroy();
     }
 

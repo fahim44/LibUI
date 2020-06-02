@@ -1,6 +1,7 @@
 package com.lamonjush.libui.ui.base;
 
 import com.lamonjush.libui.action.base.FragmentAction;
+import com.lamonjush.libui.util.ViewUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -14,6 +15,7 @@ public abstract class BaseFragment extends BaseDaggerFragment {
 
     @Override
     public void onDestroy() {
+        ViewUtil.hideKeyboard(getActivity());
         disposable.dispose();
         super.onDestroy();
     }
